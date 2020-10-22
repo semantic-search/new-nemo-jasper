@@ -1,10 +1,12 @@
-## RUN IMAGE FROM GHCR 
+## RUN IMAGE FROM GHCR
 
 ```sh
-docker run -it --env-file .env new-nemo
+docker run -it --env-file .env --gpus all ghcr.io/semantic-search/new-nemo-jasper:latest
+
 ```
 
 - Make sure you have `.env` file with following parameters
+
 ```.env
 KAFKA_HOSTNAME=
 KAFKA_PORT=
@@ -20,18 +22,16 @@ DASHBOARD_URL=
 CLIENT_ID=151515
 ```
 
-To build the docker image locally, run: 
+To build the docker image locally, run:
 
 ```git
-    git clone --recurse-submodules https://github.com/semantic-search/max-audio-classifier.git
+    git clone --recurse-submodules https://github.com/semantic-search/new-nemo-jasper.git
 ```
 
 ```
-docker build -t max-audio-classifier .
+docker build -t new-nemo-jasper .
 ```
 
 ```
-docker run -it  --env-file .env max-audio-classifier
+docker run -it  --env-file .env --gpus all new-nemo-jasper
 ```
-
-
